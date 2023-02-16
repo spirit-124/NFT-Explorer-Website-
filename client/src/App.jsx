@@ -16,7 +16,7 @@ const App = () => {
       </div>
       <Services />
       <Transactions />
-      <Loader />
+      {/* <Loader /> */}
       <Footer />
     </div>
   );
