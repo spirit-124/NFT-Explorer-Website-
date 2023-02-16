@@ -1,22 +1,22 @@
-import {
-  Navbar,
-  Footer,
-  Welcome,
-  Services,
-  Transaction,
-  Loader,
-} from "./components";
+// import React from "react";
+
+import Navbar from "./components/Navbar";
+import Services from "./components/Services";
+import Welcome from "./components/Welcome";
+import Loader from "./components/Loader";
+import Transactions from "./components/Transactions";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
     <div className="min-h-screen">
       <div className="gradient-bg-welcome">
-        {/* <h1>Hello World!!</h1>1 */}
         <Navbar />
         <Welcome />
       </div>
       <Services />
-      <Transaction />
+      <Transactions />
+      <Loader />
       <Footer />
     </div>
   );
