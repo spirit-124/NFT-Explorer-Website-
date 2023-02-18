@@ -22,10 +22,24 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
 );
 
 const Welcome = () => {
-  const { connectWallet, currentAccount } = useContext(TransactionContext);
+  const {
+    connectWallet,
+    currentAccount,
+    formData,
+    sendTransaction,
+    handleChange,
+  } = useContext(TransactionContext);
   console.log(connectWallet);
   // const connectWallet = () => {};
-  const handleSubmit = () => {};
+  const handleSubmit = (e) => {
+    const { addressTo, amount, keyword, message } = formData;
+
+    e.preventDefault();
+
+    if (!addressTo || !amount || !keyword || !message) return;
+
+    sendTransaction();
+  };
   return (
     <div className="w-full flex justify-center items-center">
       <div className="flex mf:flex-row flex-col justify-between items-start mf:p-20 py-12 px-4">
@@ -79,30 +93,30 @@ const Welcome = () => {
           <div className="p-5 sm:96 w-full flex flex-col justify-start items-center blue-glassmorphism">
             <Input
               placeholder="Address To"
-              name="addressto"
+              name="addressTo"
               type="text"
-              handleChange={() => {}}
+              handleChange={handleChange}
             />
             <Input
               placeholder="Amount (ETH)"
               name="amount"
               type="number"
-              handleChange={() => {}}
+              handleChange={handleChange}
             />
             <Input
               placeholder="Keyword (Gif)"
               name="keyword"
               type="text"
-              handleChange={() => {}}
+              handleChange={handleChange}
             />
             <Input
               placeholder="Enter Message"
               name="message"
               type="text"
-              handleChange={() => {}}
+              handleChange={handleChange}
             />
             <div className="h-[1px] w-full bg-gray-400 my-2" />
-            {true ? (
+            {false ? (
               <Loader />
             ) : (
               <button
