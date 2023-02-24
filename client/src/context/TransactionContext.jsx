@@ -84,7 +84,6 @@ export const TransactionsProvider = ({ children }) => {
       }
     } catch (error) {
       console.log(error);
-      throw new Error("no Ethereum Object found");
     }
   };
 
